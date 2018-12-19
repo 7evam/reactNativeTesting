@@ -22,12 +22,12 @@ export default class myapp extends Component{
   }
 
   componentDidMount(){
-    return fetch('https://facebook.github.io/react-native/movies.json')
+    return fetch('http://localhost:3000/api')
     .then((response) => response.json())
-    .then((responseJson) =>{
+    .then((responseJson) => {
       this.setState({
         isLoading: false,
-        dataSource: responseJson.movies,
+        dataSource: responseJson[1],
       }, function(){
       });
     })
@@ -49,7 +49,14 @@ export default class myapp extends Component{
 
     return(
       <View style={styles.myView}>
-      <Text>Home Screen</Text>
+      <Text>Home Screen - {this.state.dataSource.name}</Text>
+      <View style={{flex:2,paddingTop:20,height:100}}>
+            <FlatList
+              data={this.state.dataSource}
+              renderItem={({item}) => <Text>{item.title}, {item.releaseYear}</Text>}
+              keyExtractor={({id}, index) => id}
+              />
+        </View>
       <Greeting   message='Do j+e cards, deposit check, leave for GA by 1' />
       <ImportantInfo message = 'Create native app, work on bidding app, update readmes, update resume, apply for job, talk to coach' />
       <Text style={styles.myText}>Your name is {this.state.name}</Text>
@@ -64,13 +71,7 @@ export default class myapp extends Component{
         <Text>Boom</Text>
         </View>
 
-        <View style={{flex:2,paddingTop:20,height:100}}>
-            <FlatList
-              data={this.state.dataSource}
-              renderItem={({item}) => <Text>{item.title}, {item.releaseYear}</Text>}
-              keyExtractor={({id}, index) => id}
-              />
-        </View>
+
         </View>
         </View>
       );
