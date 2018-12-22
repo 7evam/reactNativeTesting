@@ -1,3 +1,3 @@
-import StackNav from './StackNav'
+import TabNav from './TabNav'
 
-export default StackNav
+export default TabNav

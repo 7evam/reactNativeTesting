@@ -8,9 +8,8 @@ import Show from '../screens/Show'
 import Home from '../screens/Home'
 
 const FeedStack = createStackNavigator({
-
   Index: {
-    screen: TabNav,
+    screen: Index,
     navigationOptions: {
       title: 'NYC Soundcheck',
     },

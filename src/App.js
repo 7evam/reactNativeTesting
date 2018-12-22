@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Image, AppRegistry, Text, View, StyleSheet, Navigator, ActivityIndicator, FlatList } from 'react-native';
 import { List, ListItem, Icon } from 'react-native-elements'
-import StackNav from './config/router';
+import TabNav from './config/router';
 
 export default class myapp extends Component{
 
@@ -39,7 +39,7 @@ export default class myapp extends Component{
     }
 
     return(
-      <StackNav />
+      <TabNav />
       );
   }
 }
