@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Image, AppRegistry, Text, View, StyleSheet, Navigator, ActivityIndicator, FlatList } from 'react-native';
+import { AppRegistry, Text, View, StyleSheet, Navigator, ActivityIndicator } from 'react-native';
 import { List, ListItem, Icon } from 'react-native-elements'
-import StackNav from './config/router';
 
-export default class myapp extends Component{
+export default class Index extends Component{
 
   constructor(props){
     super(props);
@@ -27,6 +26,10 @@ export default class myapp extends Component{
     });
   }
 
+  onLearnMore = (artist) => {
+    this.props.navigation.navigate('Show', artist)
+  }
+
 
   render(){
 
@@ -39,7 +42,21 @@ export default class myapp extends Component{
     }
 
     return(
-      <StackNav />
+      <View style={styles.myView}>
+        <Text>Home Screen - </Text>
+          <List containerStyle={{marginBottom: 20}}>
+            {
+              this.state.dataSource.map((artist) => (
+                <ListItem
+                  key={artist._id}
+                  title={artist.name}
+                  avatar={{uri:artist.picture}}
+                  onPress={() => this.onLearnMore(artist)}
+                />
+              ))
+            }
+          </List>
+        </View>
       );
   }
 }
@@ -50,5 +67,3 @@ myView: {
   paddingTop: '30%'
 }
 })
-
-AppRegistry.registerComponent('myapp', () => MyApp);
