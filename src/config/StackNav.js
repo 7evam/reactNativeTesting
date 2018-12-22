@@ -16,9 +16,9 @@ const FeedStack = createStackNavigator({
   },
   Show: {
     screen: Show,
-    navigationOptions: {
-      title: 'Title',
-    },
+    navigationOptions: ({ navigation }) => ({
+      title: navigation.state.params.name,
+    }),
   },
 })
 

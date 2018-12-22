@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Image, AppRegistry, Text, View, StyleSheet, Navigator, ActivityIndicator, FlatList } from 'react-native';
 import { List, ListItem, Icon } from 'react-native-elements'
+
+
 import TabNav from './config/router';
 
 export default class myapp extends Component{
@@ -32,7 +34,7 @@ export default class myapp extends Component{
 
     if(this.state.isLoading){
       return(
-        <View style={{flex: 2, padding: 20}}>
+        <View style={{flex: 2, padding: 20, backgroundColor: 'purple'}}>
           <ActivityIndicator />
         </View>
         )
