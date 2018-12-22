@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, Image, Text, View, StyleSheet, Navigator, ActivityIndicator } from 'react-native';
+import { Image, Text, View, WebView, StyleSheet, Navigator, ActivityIndicator } from 'react-native';
 import { List, ListItem, Icon } from 'react-native-elements'
 
 export default class Show extends Component{
@@ -9,12 +9,18 @@ export default class Show extends Component{
 
     return(
       <View style={styles.myView}>
+      <WebView
+        source={{uri: 'https://github.com/facebook/react-native'}}
+        style={{height:300, backgroundColor:'pink'}}
+        />
         <Text>Artist - {name}</Text>
         <Image
         style={{width: 200, height: 200}}
         source={{uri: picture}}
         />
+
         <Text>{description}</Text>
+
       </View>
       );
   }

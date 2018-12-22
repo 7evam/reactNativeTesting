@@ -10,9 +10,6 @@ import Home from '../screens/Home'
 const FeedStack = createStackNavigator({
   Index: {
     screen: Index,
-    navigationOptions: {
-      title: 'NYC Soundcheck',
-    },
   },
   Show: {
     screen: Show,
